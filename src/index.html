@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ordering</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container" style="width: 650px;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="loader">
+                    <p class="text-center">Loading...</p>
+                </div>
+                <div id="ntsh" hidden>
+                    <p class="text-center">Nothing to see here...</p>
+                </div>
+                <div id="forms" hidden>
+                    <form id="sendOrderForm" onsubmit="App.sendOrder(); return false;">
+                        <h1>sendOrder</h1>
+                        <label for="quantity">Quantity:</label><br>
+                        <input type="number" id="quantity" name="quantity" min="1" required><br>
+
+                        <input type="submit" value="Transact">
+                    </form>
+
+                    <form id="sendPriceForm" onsubmit="App.sendPrice(); return false;">
+                        <h1>sendPrice</h1>
+                        <label for="orderIdSendPrice">orderId:</label><br>
+                        <input type="number" id="orderIdSendPrice" name="orderIdSendPrice" min="0" required><br>
+
+                        <label for="unitPrice">unitPrice:</label><br>
+                        <input type="text" id="unitPrice" name="unitPrice" required><br>
+
+                        <label for="shippingPrice">shipingPrice:</label><br>
+                        <input type="text" id="shippingPrice" name="shippingPrice" required><br>
+
+                        <input type="submit" value="Transact">
+                    </form>
+
+                    <form id="sendSafepayForm" onsubmit="App.sendSafepay(); return false;">
+                        <h1>sendSafepay</h1>
+                        <label for="orderIdSendSafepay">orderId:</label><br>
+                        <input type="number" id="orderIdSendSafepay" name="orderIdSendSafepay" min="0" required><br>
+
+                        <input type="submit" value="Transact">
+                    </form>
+
+                    <form id="sendInvoiceForm" onsubmit="App.sendInvoice(); return false;">
+                        <h1>sendInvoice</h1>
+                        <label for="orderIdSendInvoice">orderId:</label><br>
+                        <input type="number" id="orderIdSendInvoice" name="orderIdSendInvoice" min="0" required><br>
+
+                        <label for="courier">courier:</label><br>
+                        <input type="text" id="courier" name="courier" required><br>
+
+                        <label for="deliveryDate">deliveryDate:</label><br>
+                        <input type="date" id="deliveryDate" name="deliveryDate" required><br>
+
+                        <input type="submit" value="Transact">
+                    </form>
+
+                    <form id="confirmDeliveryForm" onsubmit="App.confirmDelivery(); return false;">
+                        <h1>confirmDelivery</h1>
+                        <label for="invoiceIdConfirmDelivery">invoiceId:</label><br>
+                        <input type="number" id="invoiceIdConfirmDelivery" name="invoiceIdConfirmDelivery" min="0" required><br>
+
+                        <label for="date">date:</label><br>
+                        <input type="datetime-local" id="date" name="date" required><br>
+
+                        <input type="submit" value="Transact">
+                    </form>
+                </div>
+                <div id="events" style="overflow-y:auto; height:200px;">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
